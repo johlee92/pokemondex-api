@@ -9,7 +9,9 @@ const app = express();
 const morganSetting = process.env.NODE_ENV === 'production' ? 'tiny' : 'common';
 app.use(morgan(morganSetting));
 
+
 const PORT = process.env.PORT || 8000;
+
 
 app.use((error,req, res, next) => {
   let response;
@@ -19,7 +21,7 @@ app.use((error,req, res, next) => {
   } else {
     resposne = { error }
   };
-  
+
   res.status(500).json(response)
 })
 
